@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
     "@nuxtjs/tailwindcss": "^6.11.2",
     "ant-design-vue": "^4.1.2",
     "nuxt": "^3.10.0",
