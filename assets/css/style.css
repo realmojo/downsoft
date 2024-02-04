@@ -91,9 +91,6 @@ header {
   display: flex;
   flex-direction: column;
 }
-.main-h2 {
-  font-size: 24px;
-}
 .tab-item {
   width: 143px;
 }
@@ -102,6 +99,14 @@ header {
 }
 .tab-item .tab-item-app-title {
   font-size: 24px;
+}
+.os-list .ant-list-header {
+  padding: 0 !important;
+}
+.os-list .ant-list-header .header-text {
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 footer {

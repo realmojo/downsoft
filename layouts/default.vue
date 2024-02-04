@@ -7,10 +7,12 @@
             <MenuOutlined />
           </template>
         </a-button>
-        <img src="/downsoft-logo.png" class="logo-image" alt="downsoft-logo" />
+        <NuxtLink to="/"
+          ><img src="/downsoft-logo.png" class="logo-image" alt="downsoft-logo"
+        /></NuxtLink>
       </div>
       <div class="downsoft-main-title">
-        <h1>Downsoft</h1>
+        <NuxtLink to="/"><h1>Downsoft</h1></NuxtLink>
       </div>
     </div>
   </header>

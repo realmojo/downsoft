@@ -8,7 +8,7 @@
     </div>
   </div>
   <main class="soft-layout column pt-8">
-    <h2 class="main-h2">인기 앱</h2>
+    <h2 class="text-2xl">인기 앱</h2>
     <a-tabs v-model:activeKey="activeKey">
       <a-tab-pane v-for="(item, index) in tabItems" :key="Number(index + 1)">
         <template #tab>
@@ -61,9 +61,9 @@ const tabItems = ref([
       {
         image:
           "https://images.sftcdn.net/images/t_app-icon-s/p/4afa1fbe-96d1-11e6-8896-00163ec9f5fa/2603905197/hwmonitor-hwmonitor.jpg",
-        title: "Steam",
+        title: "Google Chrome",
         rating: 4.4,
-        free: "Google Chrome",
+        free: "지불",
       },
       {
         image:
