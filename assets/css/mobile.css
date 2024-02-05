@@ -1,0 +1,30 @@
+/* xs */
+@media (max-width: 576px) {
+  .small-tomato {
+    background-color: tomato;
+  }
+}
+/* sm */
+@media (max-width: 768px) {
+  .btn-down {
+    width: 100%;
+  }
+}
+/* md */
+@media (max-width: 992px) {
+  .small-tomato {
+    background-color: tomato;
+  }
+}
+/* lg */
+@media (max-width: 1200px) {
+  .small-tomato {
+    background-color: tomato;
+  }
+}
+/* xl */
+@media (max-width: 1600px) {
+  .small-tomato {
+    background-color: tomato;
+  }
+}

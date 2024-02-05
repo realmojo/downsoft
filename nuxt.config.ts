@@ -2,6 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss"],
-  css: ["~/assets/css/style.css"],
+  css: ["~/assets/css/style.css", "~/assets/css/mobile.css"],
   plugins: ["@/plugins/antd"],
 });

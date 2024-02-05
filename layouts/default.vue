@@ -1,15 +1,19 @@
 <template>
   <header>
-    <div class="soft-layout">
+    <div class="flex px-6">
       <div>
         <a-button type="link" @click="showDrawer" class="menu-icon">
           <template #icon>
             <MenuOutlined />
           </template>
         </a-button>
-        <NuxtLink to="/"
-          ><img src="/downsoft-logo.png" class="logo-image" alt="downsoft-logo"
-        /></NuxtLink>
+        <NuxtLink to="/">
+          <img
+            src="/downsoft-logo.png"
+            class="logo-image"
+            alt="downsoft-logo"
+          />
+        </NuxtLink>
       </div>
       <div class="downsoft-main-title">
         <NuxtLink to="/"><h1>Downsoft</h1></NuxtLink>
@@ -25,9 +29,14 @@
     :closable="false"
     @after-open-change="afterOpenChange"
   >
-    <p>Some contents...</p>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
+    <a-menu
+      v-model:selectedKeys="state.selectedKeys"
+      mode="inline"
+      :open-keys="state.openKeys"
+      :items="items"
+      @openChange="onOpenChange"
+      @click="doLink"
+    ></a-menu>
   </a-drawer>
 
   <!-- <div class="soft-layout"> -->
@@ -37,8 +46,109 @@
 </template>
 
 <script setup>
-import { MenuOutlined } from "@ant-design/icons-vue";
+import {
+  MenuOutlined,
+  WindowsOutlined,
+  AppleOutlined,
+  AndroidOutlined,
+  PhoneOutlined,
+} from "@ant-design/icons-vue";
 const open = ref(false);
+const selectedKeys = ref(["windows"]);
+const openKeys = ref(["sub1"]);
+const router = useRouter();
+const getItem = (label, key, icon, children, type) => {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+};
+const items = reactive([
+  getItem("Windows", "windows", () => h(WindowsOutlined), [
+    getItem("홈", "home"),
+    getItem("게임", "game"),
+    getItem("AI", "ai"),
+    getItem("유틸", "util"),
+    getItem("개발", "develop"),
+    getItem("교육", "education"),
+    getItem("보안 및 개인정보", "privacy"),
+    getItem("브라우저", "browser"),
+    getItem("음악", "music"),
+    getItem("소셜 네트워크", "sns"),
+    getItem("라이프스타일", "life"),
+    getItem("미디어", "media"),
+  ]),
+  getItem("Mac", "mac", () => h(AppleOutlined), [
+    getItem("홈", "home"),
+    getItem("게임", "game"),
+    getItem("AI", "ai"),
+    getItem("유틸", "util"),
+    getItem("개발", "develop"),
+    getItem("교육", "education"),
+    getItem("보안 및 개인정보", "privacy"),
+    getItem("브라우저", "browser"),
+    getItem("음악", "music"),
+    getItem("소셜 네트워크", "sns"),
+    getItem("라이프스타일", "life"),
+    getItem("미디어", "media"),
+  ]),
+  getItem("Android", "android", () => h(AndroidOutlined), [
+    getItem("홈", "home"),
+    getItem("게임", "game"),
+    getItem("AI", "ai"),
+    getItem("유틸", "util"),
+    getItem("개발", "develop"),
+    getItem("교육", "education"),
+    getItem("보안 및 개인정보", "privacy"),
+    getItem("브라우저", "browser"),
+    getItem("음악", "music"),
+    getItem("소셜 네트워크", "sns"),
+    getItem("라이프스타일", "life"),
+    getItem("미디어", "media"),
+  ]),
+  getItem("iPhone", "iphone", () => h(PhoneOutlined), [
+    getItem("홈", "home"),
+    getItem("게임", "game"),
+    getItem("AI", "ai"),
+    getItem("유틸", "util"),
+    getItem("개발", "develop"),
+    getItem("교육", "education"),
+    getItem("보안 및 개인정보", "privacy"),
+    getItem("브라우저", "browser"),
+    getItem("음악", "music"),
+    getItem("소셜 네트워크", "sns"),
+    getItem("라이프스타일", "life"),
+    getItem("미디어", "media"),
+  ]),
+]);
+const state = reactive({
+  rootSubmenuKeys: ["windows", "mac", "android", "iphone"],
+  openKeys: ["sub1"],
+  selectedKeys: [],
+});
+const onOpenChange = (openKeys) => {
+  const latestOpenKey = openKeys.find(
+    (key) => state.openKeys.indexOf(key) === -1
+  );
+  if (state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+    state.openKeys = openKeys;
+  } else {
+    state.openKeys = latestOpenKey ? [latestOpenKey] : [];
+  }
+};
+
+const doLink = (e) => {
+  if (e.key === "home") {
+    router.push({ path: `/${e.keyPath[0]}` });
+  } else {
+    router.push({ path: `/${e.keyPath[0]}/${e.key}` });
+  }
+
+  open.value = false;
+};
 
 const afterOpenChange = (bool) => {
   console.log("open", bool);
@@ -47,7 +157,6 @@ const showDrawer = () => {
   open.value = true;
 };
 // const runtimeConfig = useRuntimeConfig();
-// const route = useRoute();
 
 // const category = computed(() => {
 //   return route.params.category ? route.params.category : "all";

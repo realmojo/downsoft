@@ -8,50 +8,17 @@
           :title="app.title"
           :rating="app.rating"
           :free="app.free"
+          :os="app.os"
+          :category="app.category"
+          :link="app.link"
         />
       </template>
     </a-flex>
 
-    <div class="os-container pt-40">
-      <a-breadcrumb separator=">">
-        <a-breadcrumb-item><NuxtLink to="/">Home</NuxtLink></a-breadcrumb-item>
-        <a-breadcrumb-item>
-          <NuxtLink :to="os" class="text-sky-500">{{
-            os.toUpperCase()
-          }}</NuxtLink>
-          <template #overlay>
-            <a-menu>
-              <a-menu-item v-for="(item, index) in osRouters" :key="index">
-                <NuxtLink :to="`/${item.link}`"
-                  ><strong>{{ item.link.toUpperCase() }}</strong></NuxtLink
-                >
-              </a-menu-item>
-            </a-menu>
-          </template>
-        </a-breadcrumb-item>
-        <a-breadcrumb-item>
-          <NuxtLink :to="category" class="text-sky-500">{{
-            category
-          }}</NuxtLink>
-          <template #overlay>
-            <a-menu>
-              <a-menu-item
-                v-for="(item, index) in categoryRouters"
-                :key="index"
-              >
-                <NuxtLink :to="`${os}/${item.link}`"
-                  ><strong>{{ item.link.toUpperCase() }}</strong></NuxtLink
-                >
-              </a-menu-item>
-            </a-menu>
-          </template>
-        </a-breadcrumb-item>
-      </a-breadcrumb>
-
+    <div class="os-container pt-20">
+      <!-- <Breadcrumb :os="os" :category="category" /> -->
       <div class="pt-8">
-        <h2 class="text-2xl">
-          <strong>{{ os.toUpperCase() }} 앱</strong>
-        </h2>
+        <h2 class="text-2xl">{{ os.toUpperCase() }} 앱</h2>
         <a-row :gutter="16">
           <a-col
             v-for="(item, index) in data"
@@ -64,11 +31,6 @@
                 <template #header>
                   <div class="bg-gray-200 header-text">{{ item.title }}</div>
                 </template>
-
-                <!-- <a-list-item>1</a-list-item>
-                  <a-list-item>1</a-list-item>
-                  <a-list-item>1</a-list-item>
-                  <a-list-item>1</a-list-item> -->
                 <a-list-item v-for="(app, _index) in item.apps" :key="_index">
                   <a-list-item-meta>
                     <template #title>
@@ -82,8 +44,6 @@
                     </template>
                   </a-list-item-meta>
                 </a-list-item>
-
-                <!-- <template> </template> -->
               </a-list>
             </div>
           </a-col>
@@ -106,6 +66,7 @@ const apps = ref([
     free: "무료",
     os: "windows",
     category: "game",
+    link: "steam",
   },
   {
     image:
@@ -115,6 +76,7 @@ const apps = ref([
     free: "무료",
     os: "windows",
     category: "game",
+    link: "palworld",
   },
   {
     image:
@@ -122,6 +84,9 @@ const apps = ref([
     title: "Google Chrome",
     rating: 4.4,
     free: "유료",
+    os: "windows",
+    category: "game",
+    link: "chrome",
   },
   {
     image:
@@ -131,6 +96,7 @@ const apps = ref([
     free: "무료",
     os: "windows",
     category: "game",
+    link: "discord",
   },
   {
     image:
@@ -138,6 +104,9 @@ const apps = ref([
     title: "Steam",
     rating: 4.3,
     free: "CPU-Z",
+    os: "mac",
+    category: "util",
+    link: "steam",
   },
   {
     image:
@@ -146,37 +115,11 @@ const apps = ref([
     rating: 4.4,
     free: "무료",
     os: "windows",
-    category: "game",
+    category: "util",
+    link: "ppt",
   },
 ]);
-const osRouters = [
-  {
-    link: "windows",
-  },
-  {
-    link: "mac",
-  },
-  {
-    link: "android",
-  },
-  {
-    link: "iphone",
-  },
-];
-const categoryRouters = [
-  {
-    link: "life",
-  },
-  {
-    link: "game",
-  },
-  {
-    link: "ai",
-  },
-  {
-    link: "security",
-  },
-];
+
 const data = [
   {
     title: "게임",

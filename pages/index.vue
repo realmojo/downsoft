@@ -28,6 +28,9 @@
               :title="app.title"
               :rating="app.rating"
               :free="app.free"
+              :os="app.os"
+              :category="app.category"
+              :link="app.link"
             />
           </template>
         </a-flex>
@@ -50,6 +53,9 @@ const tabItems = ref([
         title: "Steam",
         rating: 4.1,
         free: "무료",
+        os: "windows",
+        category: "game",
+        link: "steam",
       },
       {
         image:
@@ -57,6 +63,9 @@ const tabItems = ref([
         title: "Palworld",
         rating: 4.3,
         free: "무료",
+        os: "windows",
+        category: "game",
+        link: "palworld",
       },
       {
         image:
@@ -64,6 +73,9 @@ const tabItems = ref([
         title: "Google Chrome",
         rating: 4.4,
         free: "지불",
+        os: "windows",
+        category: "game",
+        link: "chrome",
       },
       {
         image:
@@ -71,6 +83,9 @@ const tabItems = ref([
         title: "Discord",
         rating: 4.1,
         free: "무료",
+        os: "windows",
+        category: "game",
+        link: "discord",
       },
       {
         image:
@@ -78,6 +93,9 @@ const tabItems = ref([
         title: "Steam",
         rating: 4.3,
         free: "CPU-Z",
+        os: "windows",
+        category: "game",
+        link: "cpu-z",
       },
       {
         image:
@@ -85,6 +103,9 @@ const tabItems = ref([
         title: "Microsoft Powerpoint",
         rating: 4.4,
         free: "무료",
+        os: "windows",
+        category: "game",
+        link: "ppt",
       },
     ],
   },
@@ -97,6 +118,9 @@ const tabItems = ref([
         title: "Steam",
         rating: 3.1,
         free: "무료",
+        os: "windows",
+        category: "game",
+        link: "steam",
       },
       {
         image:
@@ -104,6 +128,9 @@ const tabItems = ref([
         title: "Steam",
         rating: 4.1,
         free: "무료",
+        os: "windows",
+        category: "game",
+        link: "Steam",
       },
       {
         image:
@@ -111,6 +138,9 @@ const tabItems = ref([
         title: "Steam",
         rating: 5,
         free: "무료",
+        os: "windows",
+        category: "game",
+        link: "Steam",
       },
     ],
   },

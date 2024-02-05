@@ -1,9 +1,11 @@
 <template>
   <div>
     <a-card hoverable>
-      <div class="tab-item">
-        <img :src="image" />
-      </div>
+      <NuxtLink :to="`/${os}/${category}/${link}`">
+        <div class="tab-item">
+          <img :src="image" />
+        </div>
+      </NuxtLink>
     </a-card>
     <div class="flex justify-between pt-1">
       <div>
@@ -14,7 +16,9 @@
         {{ free }}
       </div>
     </div>
-    <div class="pt-3 text-xl font-bold">{{ title }}</div>
+    <div class="pt-3 text-xl font-bold">
+      <NuxtLink :to="`/${os}/${category}/${link}`">{{ title }} </NuxtLink>
+    </div>
   </div>
 </template>
 
@@ -24,6 +28,9 @@ const props = defineProps({
   title: String,
   rating: Number,
   free: String,
+  os: String,
+  category: String,
+  link: String,
 });
 import { StarFilled } from "@ant-design/icons-vue";
 </script>
