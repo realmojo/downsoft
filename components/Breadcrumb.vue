@@ -1,5 +1,5 @@
 <template>
-  <a-breadcrumb separator=">">
+  <a-breadcrumb>
     <a-breadcrumb-item><NuxtLink to="/">Home</NuxtLink></a-breadcrumb-item>
     <a-breadcrumb-item v-if="os">
       <NuxtLink :to="`/${os}`" class="text-sky-500">{{

@@ -16,7 +16,7 @@
     </a-flex>
 
     <div class="os-container pt-20">
-      <!-- <Breadcrumb :os="os" :category="category" /> -->
+      <Breadcrumb :os="os" :category="category" />
       <div class="pt-8">
         <h2 class="text-2xl">{{ os.toUpperCase() }} 앱</h2>
         <a-row :gutter="16">
@@ -35,7 +35,7 @@
                   <a-list-item-meta>
                     <template #title>
                       <NuxtLink
-                        :to="`${app.os}/${app.category}/${app.title}`"
+                        :to="`/${app.os}/${app.category}/${app.title}`"
                         >{{ app.title }}</NuxtLink
                       >
                     </template>

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="flex px-6">
+    <div class="flex header px-4">
       <div>
         <a-button type="link" @click="showDrawer" class="menu-icon">
           <template #icon>
