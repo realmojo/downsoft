@@ -16,7 +16,7 @@
         </NuxtLink>
       </div>
       <div class="downsoft-main-title">
-        <NuxtLink to="/"><h1>Downsoft</h1></NuxtLink>
+        <NuxtLink to="/"><h1>Softbox</h1></NuxtLink>
       </div>
     </div>
   </header>
@@ -51,7 +51,7 @@ import {
   WindowsOutlined,
   AppleOutlined,
   AndroidOutlined,
-  PhoneOutlined,
+  MobileOutlined,
 } from "@ant-design/icons-vue";
 const open = ref(false);
 const selectedKeys = ref(["windows"]);
@@ -66,63 +66,67 @@ const getItem = (label, key, icon, children, type) => {
     type,
   };
 };
+const categories = [
+  {
+    name: "홈",
+    value: "home",
+  },
+  {
+    name: "게임",
+    value: "game",
+  },
+  {
+    name: "AI",
+    value: "ai",
+  },
+  {
+    name: "브라우저",
+    value: "browser",
+  },
+  {
+    name: "보안 및 개인정보",
+    value: "security",
+  },
+  {
+    name: "개발",
+    value: "development",
+  },
+  {
+    name: "개인화",
+    value: "personality",
+  },
+  {
+    name: "교육",
+    value: "education",
+  },
+  {
+    name: "음악",
+    value: "music",
+  },
+  {
+    name: "소셜네트워크",
+    value: "sns",
+  },
+  {
+    name: "여행",
+    value: "travel",
+  },
+  {
+    name: "미디어",
+    value: "media",
+  },
+];
+
+const itemCategories = [];
+for (const item of categories) {
+  itemCategories.push(getItem(item.name, item.value));
+}
+
 const items = reactive([
-  getItem("Windows", "windows", () => h(WindowsOutlined), [
-    getItem("홈", "home"),
-    getItem("게임", "game"),
-    getItem("AI", "ai"),
-    getItem("유틸", "util"),
-    getItem("개발", "develop"),
-    getItem("교육", "education"),
-    getItem("보안 및 개인정보", "privacy"),
-    getItem("브라우저", "browser"),
-    getItem("음악", "music"),
-    getItem("소셜 네트워크", "sns"),
-    getItem("라이프스타일", "life"),
-    getItem("미디어", "media"),
-  ]),
-  getItem("Mac", "mac", () => h(AppleOutlined), [
-    getItem("홈", "home"),
-    getItem("게임", "game"),
-    getItem("AI", "ai"),
-    getItem("유틸", "util"),
-    getItem("개발", "develop"),
-    getItem("교육", "education"),
-    getItem("보안 및 개인정보", "privacy"),
-    getItem("브라우저", "browser"),
-    getItem("음악", "music"),
-    getItem("소셜 네트워크", "sns"),
-    getItem("라이프스타일", "life"),
-    getItem("미디어", "media"),
-  ]),
-  getItem("Android", "android", () => h(AndroidOutlined), [
-    getItem("홈", "home"),
-    getItem("게임", "game"),
-    getItem("AI", "ai"),
-    getItem("유틸", "util"),
-    getItem("개발", "develop"),
-    getItem("교육", "education"),
-    getItem("보안 및 개인정보", "privacy"),
-    getItem("브라우저", "browser"),
-    getItem("음악", "music"),
-    getItem("소셜 네트워크", "sns"),
-    getItem("라이프스타일", "life"),
-    getItem("미디어", "media"),
-  ]),
-  getItem("iPhone", "iphone", () => h(PhoneOutlined), [
-    getItem("홈", "home"),
-    getItem("게임", "game"),
-    getItem("AI", "ai"),
-    getItem("유틸", "util"),
-    getItem("개발", "develop"),
-    getItem("교육", "education"),
-    getItem("보안 및 개인정보", "privacy"),
-    getItem("브라우저", "browser"),
-    getItem("음악", "music"),
-    getItem("소셜 네트워크", "sns"),
-    getItem("라이프스타일", "life"),
-    getItem("미디어", "media"),
-  ]),
+  getItem("Windows", "windows", () => h(WindowsOutlined), itemCategories),
+  getItem("Mac", "mac", () => h(AppleOutlined), itemCategories),
+  getItem("Android", "android", () => h(AndroidOutlined), itemCategories),
+  getItem("iPhone", "iphone", () => h(MobileOutlined), itemCategories),
 ]);
 const state = reactive({
   rootSubmenuKeys: ["windows", "mac", "android", "iphone"],

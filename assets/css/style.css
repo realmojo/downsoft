@@ -35,7 +35,7 @@ header .header {
   padding-top: 18px;
   font-size: 28px;
   font-weight: bold;
-  letter-spacing: -1px;
+  /* letter-spacing: x; */
   margin-left: 20px;
 }
 .ant-drawer-title {
@@ -106,7 +106,8 @@ header .header {
   flex-direction: column;
 }
 .tab-item {
-  width: 135px;
+  width: 186px;
+  word-wrap: break-word;
 }
 .tab-item img {
   width: 100%;

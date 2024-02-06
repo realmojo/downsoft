@@ -1,22 +1,22 @@
 <template>
   <main class="soft-layout column pt-8">
+    <Breadcrumb :os="os" :category="category" class="pt-4 mb-10" />
     <h2 class="text-2xl">인기 앱</h2>
     <a-flex wrap="wrap" gap="large">
       <template v-for="(app, key) in apps" :key="key">
         <TabItem
-          :image="app.image"
           :title="app.title"
-          :rating="app.rating"
-          :free="app.free"
-          :os="app.os"
+          :logo="app.logo"
+          :slug="app.slug"
+          :rate="app.rate"
+          :security="app.security"
+          :os="os"
           :category="app.category"
-          :link="app.link"
         />
       </template>
     </a-flex>
 
     <div class="os-container pt-20">
-      <Breadcrumb :os="os" :category="category" />
       <div class="pt-8">
         <h2 class="text-2xl">{{ os.toUpperCase() }} 앱</h2>
         <a-row :gutter="16">
@@ -57,68 +57,15 @@
 const route = useRoute();
 const os = route.params.os;
 const category = "ALL";
-const apps = ref([
-  {
-    image:
-      "https://images.sftcdn.net/images/t_app-icon-s/p/3047d89c-96d0-11e6-8546-00163ed833e7/4018433091/steam-Download-Steam.jpg",
-    title: "Steam",
-    rating: 4.1,
-    free: "무료",
-    os: "windows",
-    category: "game",
-    link: "steam",
-  },
-  {
-    image:
-      "https://images.sftcdn.net/images/t_app-icon-s/p/fe087176-55c2-4976-8231-5c51aed67a80/2012546824/palworld-download-palworld.jpg",
-    title: "Palworld",
-    rating: 4.3,
-    free: "무료",
-    os: "windows",
-    category: "game",
-    link: "palworld",
-  },
-  {
-    image:
-      "https://images.sftcdn.net/images/t_app-icon-s/p/4afa1fbe-96d1-11e6-8896-00163ec9f5fa/2603905197/hwmonitor-hwmonitor.jpg",
-    title: "Google Chrome",
-    rating: 4.4,
-    free: "유료",
-    os: "windows",
-    category: "game",
-    link: "chrome",
-  },
-  {
-    image:
-      "https://images.sftcdn.net/images/t_app-icon-s/p/9848e854-ffae-11e6-a59d-00163ed833e7/2949821524/discord-icon.png",
-    title: "Discord",
-    rating: 4.1,
-    free: "무료",
-    os: "windows",
-    category: "game",
-    link: "discord",
-  },
-  {
-    image:
-      "https://images.sftcdn.net/images/t_app-icon-s/p/a3fbd9dc-96d0-11e6-88e1-00163ed833e7/146228571/cpu-z-146228571.png",
-    title: "Steam",
-    rating: 4.3,
-    free: "CPU-Z",
-    os: "mac",
-    category: "util",
-    link: "steam",
-  },
-  {
-    image:
-      "https://images.sftcdn.net/images/t_app-icon-s/p/5c1ff386-96d1-11e6-9540-00163ec9f5fa/1902184157/microsoft-powerpoint-2010-94px-Microsoft_Office_PowerPoint_(2013%E2%80%93present).svg.png",
-    title: "Microsoft Powerpoint",
-    rating: 4.4,
-    free: "무료",
-    os: "windows",
-    category: "util",
-    link: "ppt",
-  },
-]);
+const apps = ref([]);
+const url = `https://api.getsoftbox.com/api/getItemByOs.php?os=${os}`;
+let res = await useFetch(url, {
+  key: "item",
+  method: "get",
+});
+
+const d = JSON.parse(res.data._rawValue);
+apps.value = d;
 
 const data = [
   {
