@@ -33,14 +33,6 @@
         />
       </div>
       <div class="mb-4">
-        <div class="text-gray-900 font-weight-bold mb-2">업데이트 날짜</div>
-        <a-input
-          v-model:value="updated"
-          placeholder="updated"
-          style="width: 400px"
-        />
-      </div>
-      <div class="mb-4">
         <div class="text-gray-900 font-weight-bold mb-2">OS</div>
         <a-checkbox-group
           v-model:value="os"
@@ -53,17 +45,16 @@
         <a-select
           ref="select"
           v-model:value="category"
-          style="width: 120px"
+          style="width: 400px"
           :options="categoryOptions"
         />
       </div>
-
       <div class="mb-4">
         <div class="text-gray-900 font-weight-bold mb-2">대표언어</div>
         <a-select
           ref="select"
-          v-model:value="primaryLanguages"
-          style="width: 120px"
+          v-model:value="primaryLanguage"
+          style="width: 400px"
           :options="priOptions"
         />
       </div>
@@ -73,6 +64,38 @@
           v-model:value="altLanguages"
           name="checkboxgroup"
           :options="plainOptions"
+        />
+      </div>
+      <div class="mb-4">
+        <div class="text-gray-900 font-weight-bold mb-2">애드센스1</div>
+        <a-input
+          v-model:value="adsense1"
+          placeholder="adsense1"
+          style="width: 400px"
+        />
+      </div>
+      <div class="mb-4">
+        <div class="text-gray-900 font-weight-bold mb-2">애드센스2</div>
+        <a-input
+          v-model:value="adsense2"
+          placeholder="adsense2"
+          style="width: 400px"
+        />
+      </div>
+      <div class="mb-4">
+        <div class="text-gray-900 font-weight-bold mb-2">애드센스3</div>
+        <a-input
+          v-model:value="adsense3"
+          placeholder="adsense3"
+          style="width: 400px"
+        />
+      </div>
+      <div class="mb-4">
+        <div class="text-gray-900 font-weight-bold mb-2">업데이트 날짜</div>
+        <a-input
+          v-model:value="updated"
+          placeholder="updated"
+          style="width: 400px"
         />
       </div>
     </a-col>
@@ -172,31 +195,64 @@
     </a-col>
     <a-col :span="8">
       <div class="mb-4">
-        <div class="text-gray-900 font-weight-bold mb-2">애드센스1</div>
+        <div class="text-gray-900 font-weight-bold mb-2">콘텐츠1</div>
         <a-input
-          v-model:value="adsense1"
-          placeholder="adsense1"
+          v-model:value="ctitle1"
+          placeholder="제목1"
           style="width: 400px"
+          class="mb-2"
+        />
+        <a-textarea
+          v-model:value="cdescription1"
+          placeholder="내용1"
+          style="width: 400px"
+          :rows="6"
         />
       </div>
       <div class="mb-4">
-        <div class="text-gray-900 font-weight-bold mb-2">애드센스2</div>
+        <div class="text-gray-900 font-weight-bold mb-2">콘텐츠2</div>
         <a-input
-          v-model:value="adsense2"
-          placeholder="adsense2"
+          v-model:value="ctitle2"
+          placeholder="제목2"
           style="width: 400px"
+          class="mb-2"
+        />
+        <a-textarea
+          v-model:value="cdescription2"
+          placeholder="내용2"
+          style="width: 400px"
+          :rows="6"
         />
       </div>
       <div class="mb-4">
-        <div class="text-gray-900 font-weight-bold mb-2">애드센스3</div>
+        <div class="text-gray-900 font-weight-bold mb-2">콘텐츠3</div>
         <a-input
-          v-model:value="adsense3"
-          placeholder="adsense3"
+          v-model:value="ctitle3"
+          placeholder="제목3"
           style="width: 400px"
+          class="mb-2"
+        />
+        <a-textarea
+          v-model:value="cdescription3"
+          placeholder="내용3"
+          style="width: 400px"
+          :rows="6"
         />
       </div>
       <div class="mb-4">
-        <a-button @click="doSave()">저장</a-button>
+        <div class="text-gray-900 font-weight-bold mb-2">활성화</div>
+        <a-radio-group v-model:value="active">
+          <a-radio-button value="active">active</a-radio-button>
+          <a-radio-button value="wait">wait</a-radio-button>
+        </a-radio-group>
+      </div>
+      <div class="mb-4">
+        <a-button
+          style="width: 400px"
+          class="bg-sky-500 text-white"
+          @click="doSave()"
+          >저장</a-button
+        >
       </div>
     </a-col>
   </a-row>
@@ -221,7 +277,7 @@ const content = ref({});
 const downloadCount = ref("");
 const developer = ref("");
 const developerLink = ref("");
-const primaryLanguages = ref(["한국어"]);
+const primaryLanguage = ref("");
 const etcInfo = ref({});
 const windowsLink = ref("");
 const macLink = ref("");
@@ -230,8 +286,15 @@ const iphoneLink = ref("");
 const adsense1 = ref("");
 const adsense2 = ref("");
 const adsense3 = ref("");
+const ctitle1 = ref("");
+const ctitle2 = ref("");
+const ctitle3 = ref("");
+const cdescription1 = ref("");
+const cdescription2 = ref("");
+const cdescription3 = ref("");
 const security = ref("excellent");
-const altLanguages = ref(["한국어", "영어", "일본어", "프랑스어", "러시아어"]);
+const active = ref("wait");
+const altLanguages = ref([]);
 
 const categoryOptions = [
   {
@@ -286,23 +349,23 @@ const categoryOptions = [
 const priOptions = [
   {
     value: "kr",
-    label: "한국어",
+    label: "kr",
   },
   {
     value: "en",
-    label: "영어",
+    label: "en",
   },
   {
     value: "jp",
-    label: "일본어",
+    label: "jp",
   },
   {
     value: "fr",
-    label: "프랑스어",
+    label: "fr",
   },
   {
     value: "ru",
-    label: "러시아어",
+    label: "ru",
   },
 ];
 const plainOptions = ["kr", "en", "jp", "fr", "ru"];
@@ -325,6 +388,10 @@ const handleFilesChange = async ({ target }) => {
   }
 };
 
+const replaceAll = (str, searchStr, replaceStr) => {
+  return str.split(searchStr).join(replaceStr);
+};
+
 const doSave = async () => {
   const params = {
     title: title.value,
@@ -340,11 +407,16 @@ const doSave = async () => {
       androidLink: androidLink.value,
       iphoneLink: iphoneLink.value,
     },
-    primaryLanguage: primaryLanguages.value.toString(),
+    ctitle1: ctitle1.value,
+    ctitle2: ctitle2.value,
+    ctitle3: ctitle3.value,
+    cdescription1: cdescription1.value,
+    cdescription2: cdescription2.value,
+    cdescription3: cdescription3.value,
+    primaryLanguage: primaryLanguage.value,
     altLanguages: altLanguages.value,
     developer: developer.value,
     developerLink: developerLink.value,
-    content: content.value,
     rate: rate.value,
     viewCount: viewCount.value,
     downloadCount: downloadCount.value,
@@ -356,6 +428,7 @@ const doSave = async () => {
       ad2: adsense2.value,
       ad3: adsense3.value,
     },
+    active: active.value,
   };
   console.log(params);
 
@@ -393,7 +466,13 @@ onMounted(async () => {
     macLink.value = data.links.macLink || "";
     androidLink.value = data.links.androidLink || "";
     iphoneLink.value = data.links.iphoneLink || "";
-    primaryLanguages.value = data.value;
+    ctitle1.value = data.ctitle1;
+    ctitle2.value = data.ctitle2;
+    ctitle3.value = data.ctitle3;
+    cdescription1.value = data.cdescription1;
+    cdescription2.value = data.cdescription2;
+    cdescription3.value = data.cdescription3;
+    primaryLanguage.value = data.primaryLanguage;
     altLanguages.value = data.altLanguages;
     developer.value = data.developer;
     developerLink.value = data.developerLink;
@@ -407,6 +486,7 @@ onMounted(async () => {
     adsense1.value = data.adsense.ad1 || "";
     adsense2.value = data.adsense.ad2 || "";
     adsense3.value = data.adsense.ad3 || "";
+    active.value = data.active;
   }
 });
 </script>
