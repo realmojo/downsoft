@@ -195,6 +195,13 @@
     </a-col>
     <a-col :span="8">
       <div class="mb-4">
+        <div class="text-gray-900 font-weight-bold mb-2">활성화</div>
+        <a-radio-group v-model:value="active">
+          <a-radio-button value="active">active</a-radio-button>
+          <a-radio-button value="wait">wait</a-radio-button>
+        </a-radio-group>
+      </div>
+      <div class="mb-4">
         <div class="text-gray-900 font-weight-bold mb-2">콘텐츠1</div>
         <a-input
           v-model:value="ctitle1"
@@ -238,13 +245,6 @@
           style="width: 400px"
           :rows="6"
         />
-      </div>
-      <div class="mb-4">
-        <div class="text-gray-900 font-weight-bold mb-2">활성화</div>
-        <a-radio-group v-model:value="active">
-          <a-radio-button value="active">active</a-radio-button>
-          <a-radio-button value="wait">wait</a-radio-button>
-        </a-radio-group>
       </div>
       <div class="mb-4">
         <a-button
@@ -292,8 +292,8 @@ const ctitle3 = ref("");
 const cdescription1 = ref("");
 const cdescription2 = ref("");
 const cdescription3 = ref("");
-const security = ref("excellent");
-const active = ref("wait");
+const security = ref("");
+const active = ref("");
 const altLanguages = ref([]);
 
 const categoryOptions = [
@@ -455,6 +455,8 @@ onMounted(async () => {
       `https://api.getsoftbox.com/api/getItem.php?slug=${slug.value}`
     );
 
+    console.log(data);
+
     title.value = data.title;
     description.value = data.description;
     slug.value = data.slug;
@@ -483,10 +485,10 @@ onMounted(async () => {
     updated.value = data.updated;
     version.value = data.version;
     security.value = data.security;
+    active.value = data.active;
     adsense1.value = data.adsense.ad1 || "";
     adsense2.value = data.adsense.ad2 || "";
     adsense3.value = data.adsense.ad3 || "";
-    active.value = data.active;
   }
 });
 </script>

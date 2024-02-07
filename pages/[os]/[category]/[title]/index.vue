@@ -16,17 +16,24 @@
                     {{ item.title }} 다운로드
                   </h1>
                   <div class="pt-2">
-                    <a-tag color="blue" class="mr-2">{{ item.license }}</a-tag>
-                    <a-tag color="blue" class="mr-2">{{
-                      item.primaryLanguage
+                    <a-tag v-if="item.license" color="blue" class="mr-2">{{
+                      item.license
                     }}</a-tag>
-                    <a-tag color="blue" class="mr-2">{{ item.version }}</a-tag>
+                    <a-tag
+                      v-if="item.primaryLanguage"
+                      color="blue"
+                      class="mr-2"
+                      >{{ item.primaryLanguage }}</a-tag
+                    >
+                    <a-tag v-if="item.version" color="blue" class="mr-2">{{
+                      item.version
+                    }}</a-tag>
                   </div>
                   <div class="pt-2 flex">
-                    <div style="margin-top: -2px" class="mr-1">
+                    <div v-if="item.rate" style="margin-top: -2px" class="mr-1">
                       <StarFilled class="text-yellow-400" />
                     </div>
-                    <div>
+                    <div v-if="item.rate">
                       <span class="mt-2 mr-4 text-gray-500"
                         >{{ item.rate }} ({{ item.downloadCount }} People)</span
                       >
@@ -37,11 +44,11 @@
                         class="text-green-400"
                       />
                       <WarningOutlined
-                        v-else-if="item.security === 'excellent'"
+                        v-else-if="item.security === 'warning'"
                         class="text-orange-400"
                       />
                       <CloseCircleOutlined
-                        v-else-if="item.security === 'excellent'"
+                        v-else-if="item.security === 'danger'"
                         class="text-danger-400"
                       />
                     </div>
@@ -85,7 +92,7 @@
 
         <section class="pt-2">
           <h2>앱 사양</h2>
-          <a-descriptions class="mb-4" bordered>
+          <a-descriptions class="mb-8" bordered>
             <a-descriptions-item v-if="item.license" label="라이센스">{{
               item.license
             }}</a-descriptions-item>
@@ -106,17 +113,11 @@
             >
           </a-descriptions>
           <h2 v-if="item.ctitle1">{{ item.ctitle1 }}</h2>
-          <p v-if="item.cdescription1">
-            {{ item.cdescription1 }}
-          </p>
+          <p v-if="item.cdescription1" v-html="item.cdescription1"></p>
           <h2 v-if="item.ctitle2">{{ item.ctitle2 }}</h2>
-          <p v-if="item.cdescription2">
-            {{ item.cdescription2 }}
-          </p>
+          <p v-if="item.cdescription2" v-html="item.cdescription2"></p>
           <h2 v-if="item.ctitle3">{{ item.ctitle3 }}</h2>
-          <p v-if="item.cdescription3">
-            {{ item.cdescription3 }}
-          </p>
+          <p v-if="item.cdescription3" v-html="item.cdescription3"></p>
         </section>
       </a-col>
       <a-col :xs="24" :sm="24" :md="6" :lg="8" class="aside">
@@ -171,7 +172,6 @@ let { data } = await useFetch(url, {
 });
 
 const item = JSON.parse(data._rawValue);
-console.log(item);
 
 // console.log(res);
 
