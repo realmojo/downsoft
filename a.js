@@ -23,7 +23,7 @@ const replaceAll = (str, searchStr, replaceStr) => {
 
 const randomRate = () => {
   const fix = Math.random().toFixed(2);
-  const number = Math.floor(Math.random() * 3) + 3;
+  const number = Math.floor(Math.random() * 2) + 3;
   return Number(number) + Number(fix);
 };
 
@@ -72,7 +72,7 @@ setTimeout(async () => {
         updated = transUpdated(specText);
       } else if (specTitle === "OS") {
         specText = specText.toLowerCase();
-        if (specText.indexOf("Window") !== -1) {
+        if (specText.indexOf("window") !== -1) {
           os.push("windows");
         } else if (specText.indexOf("mac") !== -1) {
           os.push("mac");
