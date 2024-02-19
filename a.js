@@ -5,6 +5,11 @@ bScript.src =
   "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js";
 head.appendChild(bScript);
 
+const getExt = (logo) => {
+  let s = logo.split(".");
+  return s[s.length - 1];
+};
+
 const transUpdated = (value) => {
   const d = value.split(".");
   let year = d[0].trim();
@@ -49,6 +54,11 @@ setTimeout(async () => {
       }
     });
 
+    // logo
+    let logo = "";
+    a = $(".app-icon")[0];
+    logo = $(a).attr("src");
+
     // app spec
     a = $(".app-specs__list > li");
     let specTitle = "";
@@ -91,63 +101,99 @@ setTimeout(async () => {
         });
       } else if (specTitle.indexOf("언어") !== -1) {
         if (specText.indexOf("English") !== -1) {
-          primaryLanguage = "en";
+          if (!primaryLanguage) {
+            primaryLanguage = "en";
+          }
           altLanguages.push("en");
         }
         if (specText.indexOf("Korean") !== -1) {
-          primaryLanguage = "kr";
+          if (!primaryLanguage) {
+            primaryLanguage = "kr";
+          }
           altLanguages.push("kr");
         }
         if (specText.indexOf("Russian") !== -1) {
-          primaryLanguage = "ru";
+          if (!primaryLanguage) {
+            primaryLanguage = "ru";
+          }
           altLanguages.push("ru");
         }
         if (specText.indexOf("Czech") !== -1) {
-          primaryLanguage = "cz";
+          if (!primaryLanguage) {
+            primaryLanguage = "cz";
+          }
           altLanguages.push("cz");
         }
         if (specText.indexOf("German") !== -1) {
-          primaryLanguage = "de";
+          if (!primaryLanguage) {
+            primaryLanguage = "de";
+          }
           altLanguages.push("de");
         }
         if (specText.indexOf("Spanish") !== -1) {
-          primaryLanguage = "es";
+          if (!primaryLanguage) {
+            primaryLanguage = "es";
+          }
           altLanguages.push("es");
         }
         if (specText.indexOf("Finnish") !== -1) {
-          primaryLanguage = "fi";
+          if (!primaryLanguage) {
+            primaryLanguage = "fi";
+          }
           altLanguages.push("fi");
         }
+        if (specText.indexOf("Danish") !== -1) {
+          if (!primaryLanguage) {
+            primaryLanguage = "dk";
+          }
+          altLanguages.push("dk");
+        }
         if (specText.indexOf("Italian") !== -1) {
-          primaryLanguage = "it";
+          if (!primaryLanguage) {
+            primaryLanguage = "it";
+          }
           altLanguages.push("it");
         }
         if (specText.indexOf("Japanese") !== -1) {
-          primaryLanguage = "jp";
+          if (!primaryLanguage) {
+            primaryLanguage = "jp";
+          }
           altLanguages.push("jp");
         }
         if (specText.indexOf("Dutch") !== -1) {
-          primaryLanguage = "nl";
+          if (!primaryLanguage) {
+            primaryLanguage = "nl";
+          }
           altLanguages.push("nl");
         }
         if (specText.indexOf("Norwegian") !== -1) {
-          primaryLanguage = "no";
+          if (!primaryLanguage) {
+            primaryLanguage = "no";
+          }
           altLanguages.push("no");
         }
         if (specText.indexOf("Polish") !== -1) {
-          primaryLanguage = "pl";
+          if (!primaryLanguage) {
+            primaryLanguage = "pl";
+          }
           altLanguages.push("pl");
         }
         if (specText.indexOf("Portuguese") !== -1) {
-          primaryLanguage = "pt";
+          if (!primaryLanguage) {
+            primaryLanguage = "pt";
+          }
           altLanguages.push("pt");
         }
         if (specText.indexOf("Swedish") !== -1) {
-          primaryLanguage = "se";
+          if (!primaryLanguage) {
+            primaryLanguage = "se";
+          }
           altLanguages.push("se");
         }
         if (specText.indexOf("Chinese") !== -1) {
-          primaryLanguage = "cn";
+          if (!primaryLanguage) {
+            primaryLanguage = "cn";
+          }
           altLanguages.push("cn");
         }
       }
@@ -157,6 +203,8 @@ setTimeout(async () => {
       title: title,
       slug: replaceAll(title.toLowerCase(), " ", "-"),
       os: os,
+      logo: logo,
+      ext: getExt(logo),
       category: "game",
       license: license,
       primaryLanguage: primaryLanguage,
@@ -176,6 +224,7 @@ setTimeout(async () => {
 
     $.ajax({
       type: "post",
+      // url: "https://f5game-bot.herokuapp.com/downsoft/addContents",
       url: "http://localhost:3000/downsoft/addContents",
       data: params,
     }).done((res) => {

@@ -8,22 +8,22 @@
       <template v-if="!title" #overlay>
         <a-menu>
           <a-menu-item v-for="(item, index) in osRouters" :key="index">
-            <NuxtLink :to="`/${item.link}`"
-              ><strong>{{ item.link.toUpperCase() }}</strong></NuxtLink
+            <NuxtLink :to="`/${item.value}`"
+              ><strong>{{ item.value.toUpperCase() }}</strong></NuxtLink
             >
           </a-menu-item>
         </a-menu>
       </template>
     </a-breadcrumb-item>
     <a-breadcrumb-item v-if="category">
-      <NuxtLink :to="`/${os}/${category}`" class="text-sky-500">{{
+      <NuxtLink :to="`/${category}`" class="text-sky-500">{{
         category.toUpperCase()
       }}</NuxtLink>
       <template v-if="!title" #overlay>
         <a-menu>
           <a-menu-item v-for="(item, index) in categoryRouters" :key="index">
-            <NuxtLink :to="`/${os}/${item.link}`"
-              ><strong>{{ item.link.toUpperCase() }}</strong></NuxtLink
+            <NuxtLink :to="`/${item.value}`"
+              ><strong>{{ item.value.toUpperCase() }}</strong></NuxtLink
             >
           </a-menu-item>
         </a-menu>
@@ -35,6 +35,7 @@
   </a-breadcrumb>
 </template>
 <script setup>
+import categories from "assets/js/categories.json";
 const props = defineProps({
   os: String,
   category: String,
@@ -54,18 +55,5 @@ const osRouters = [
     link: "iphone",
   },
 ];
-const categoryRouters = [
-  {
-    link: "life",
-  },
-  {
-    link: "game",
-  },
-  {
-    link: "ai",
-  },
-  {
-    link: "security",
-  },
-];
+const categoryRouters = categories;
 </script>

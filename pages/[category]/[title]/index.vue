@@ -75,12 +75,18 @@
             </a-col>
             <a-col :xs="24" :sm="24" :md="24" :lg="8">
               <div class="flex flex-col">
-                <a v-if="item.links.windowsLink" :href="item.links.windowsLink">
+                <a
+                  v-if="item.links && item.links.windowsLink"
+                  :href="item.links.windowsLink"
+                >
                   <a-button type="primary" class="btn-down w-full mb-2"
                     >Windows 무료 다운로드</a-button
                   >
                 </a>
-                <a v-if="item.links.macLink" :href="item.links.macLink">
+                <a
+                  v-if="item.links && item.links.macLink"
+                  :href="item.links.macLink"
+                >
                   <a-button type="primary" class="btn-down w-full mb-2"
                     >Mac 무료 다운로드</a-button
                   >
@@ -121,31 +127,33 @@
         </section>
       </a-col>
       <a-col :xs="24" :sm="24" :md="6" :lg="8" class="aside">
-        <div>
-          <Adsense slotId="123123" />
-        </div>
-        <!-- <div class="mt-4">
-          <h2>다른 앱들</h2>
-          <div class="gutter-box mb-8 os-list">
-            <a-list size="large" bordered>
-              <template #header>
-                <div class="bg-gray-200 header-text">{{ data.title }}</div>
-              </template>
-              <a-list-item v-for="(app, _index) in data.apps" :key="_index">
-                <a-list-item-meta>
+        <h2>추천 앱</h2>
+        <a-list :data-source="items">
+          <template #renderItem="{ item }">
+            <NuxtLink :to="`/${item.category}/${item.slug}`">
+              <a-list-item>
+                <a-list-item-meta
+                  :description="item.description"
+                  class="description-ellipse"
+                >
                   <template #title>
-                    <NuxtLink :to="`/${app.os}/${app.category}/${app.title}`">{{
-                      app.title
-                    }}</NuxtLink>
+                    {{ item.title }}
                   </template>
                   <template #avatar>
-                    <a-avatar :src="app.image" />
+                    <a-avatar
+                      :src="item.logo"
+                      :alt="item.title"
+                      style="width: 40px; height: 40px"
+                    />
                   </template>
                 </a-list-item-meta>
               </a-list-item>
-            </a-list>
-          </div>
-        </div> -->
+            </NuxtLink>
+          </template>
+        </a-list>
+        <div>
+          <Adsense slotId="123123" />
+        </div>
       </a-col>
     </a-row>
   </main>

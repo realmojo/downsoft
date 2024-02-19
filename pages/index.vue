@@ -3,11 +3,15 @@
     <div class="search-wrap">
       <div class="search-text">당신이 필요한 앱을 모두 한 곳에</div>
       <div class="search-input-wrap">
-        <a-input-search v-model:value="value" placeholder="Search app..." />
+        <a-input-search
+          v-model:value="value"
+          placeholder="Search app..."
+          @keyup.enter="search"
+        />
       </div>
     </div>
   </div>
-  <main class="soft-layout column pt-8">
+  <!-- <main class="soft-layout column pt-8">
     <h2 class="text-2xl">인기 앱</h2>
     <a-tabs v-model:activeKey="activeKey">
       <a-tab-pane v-for="(item, index) in tabItems" :key="Number(index + 1)">
@@ -36,12 +40,19 @@
         </a-flex>
       </a-tab-pane>
     </a-tabs>
-  </main>
+  </main> -->
 </template>
 <script setup>
 import { AppleOutlined, AndroidOutlined } from "@ant-design/icons-vue";
+const router = useRouter();
 const value = ref("");
 const activeKey = ref(1);
+
+const search = async () => {
+  if (value.value) {
+    router.push({ path: `/search/${value.value}` });
+  }
+};
 
 const tabItems = ref([
   {

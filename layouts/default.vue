@@ -29,14 +29,7 @@
     :closable="false"
     @after-open-change="afterOpenChange"
   >
-    <a-menu
-      v-model:selectedKeys="state.selectedKeys"
-      mode="inline"
-      :open-keys="state.openKeys"
-      :items="items"
-      @openChange="onOpenChange"
-      @click="doLink"
-    ></a-menu>
+    <a-menu mode="inline" :items="items" @click="doLink"></a-menu>
   </a-drawer>
 
   <!-- <div class="soft-layout"> -->
@@ -46,6 +39,7 @@
 </template>
 
 <script setup>
+import categories from "assets/js/categories.json";
 import {
   MenuOutlined,
   WindowsOutlined,
@@ -55,7 +49,7 @@ import {
 } from "@ant-design/icons-vue";
 const open = ref(false);
 const selectedKeys = ref(["windows"]);
-const openKeys = ref(["sub1"]);
+const openKeys = ref(["windows"]);
 const router = useRouter();
 const getItem = (label, key, icon, children, type) => {
   return {
@@ -66,90 +60,17 @@ const getItem = (label, key, icon, children, type) => {
     type,
   };
 };
-const categories = [
-  {
-    name: "홈",
-    value: "home",
-  },
-  {
-    name: "게임",
-    value: "game",
-  },
-  {
-    name: "AI",
-    value: "ai",
-  },
-  {
-    name: "브라우저",
-    value: "browser",
-  },
-  {
-    name: "보안 및 개인정보",
-    value: "security",
-  },
-  {
-    name: "개발",
-    value: "development",
-  },
-  {
-    name: "개인화",
-    value: "personality",
-  },
-  {
-    name: "교육",
-    value: "education",
-  },
-  {
-    name: "음악",
-    value: "music",
-  },
-  {
-    name: "소셜네트워크",
-    value: "sns",
-  },
-  {
-    name: "여행",
-    value: "travel",
-  },
-  {
-    name: "미디어",
-    value: "media",
-  },
-];
+// const categories = ;
 
 const itemCategories = [];
 for (const item of categories) {
   itemCategories.push(getItem(item.name, item.value));
 }
 
-const items = reactive([
-  getItem("Windows", "windows", () => h(WindowsOutlined), itemCategories),
-  getItem("Mac", "mac", () => h(AppleOutlined), itemCategories),
-  getItem("Android", "android", () => h(AndroidOutlined), itemCategories),
-  getItem("iPhone", "iphone", () => h(MobileOutlined), itemCategories),
-]);
-const state = reactive({
-  rootSubmenuKeys: ["windows", "mac", "android", "iphone"],
-  openKeys: ["sub1"],
-  selectedKeys: [],
-});
-const onOpenChange = (openKeys) => {
-  const latestOpenKey = openKeys.find(
-    (key) => state.openKeys.indexOf(key) === -1
-  );
-  if (state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-    state.openKeys = openKeys;
-  } else {
-    state.openKeys = latestOpenKey ? [latestOpenKey] : [];
-  }
-};
+const items = reactive(itemCategories);
 
 const doLink = (e) => {
-  if (e.key === "home") {
-    router.push({ path: `/${e.keyPath[0]}` });
-  } else {
-    router.push({ path: `/${e.keyPath[0]}/${e.key}` });
-  }
+  router.push({ path: `/${e.key}` });
 
   open.value = false;
 };

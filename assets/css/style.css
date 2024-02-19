@@ -178,3 +178,8 @@ footer {
   background-color: #2d3436;
   margin: 0 auto;
 }
+.description-ellipse {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
