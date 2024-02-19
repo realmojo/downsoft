@@ -18,6 +18,13 @@
       <div class="downsoft-main-title">
         <NuxtLink to="/"><h1>Softbox</h1></NuxtLink>
       </div>
+      <!-- <div class="pt-4">
+        <a-input
+          size="large"
+          v-model:value="title"
+          placeholder="Search apps..."
+        />
+      </div> -->
     </div>
   </header>
   <a-drawer
@@ -32,9 +39,7 @@
     <a-menu mode="inline" :items="items" @click="doLink"></a-menu>
   </a-drawer>
 
-  <!-- <div class="soft-layout"> -->
   <slot></slot>
-  <!-- </div> -->
   <Footer />
 </template>
 
@@ -51,6 +56,9 @@ const open = ref(false);
 const selectedKeys = ref(["windows"]);
 const openKeys = ref(["windows"]);
 const router = useRouter();
+const route = useRoute();
+const title = route.params.title;
+
 const getItem = (label, key, icon, children, type) => {
   return {
     key,
@@ -71,7 +79,6 @@ const items = reactive(itemCategories);
 
 const doLink = (e) => {
   router.push({ path: `/${e.key}` });
-
   open.value = false;
 };
 

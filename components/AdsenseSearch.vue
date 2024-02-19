@@ -1,5 +1,5 @@
 <template>
-  <div v-if="env === 'development'" class="adsense-dev text-white">
+  <!-- <div v-if="env === 'development'" class="adsense-dev text-white">
     애드센스 Search {{ slotId }}
   </div>
   <div v-else class="adsense-prod">
@@ -11,7 +11,7 @@
       data-ad-format="auto"
       data-full-width-responsive="true"
     ></ins>
-  </div>
+  </div> -->
 </template>
 
 <script setup>

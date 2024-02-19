@@ -1,7 +1,7 @@
 <template>
   <div class="tab-item mb-8">
     <a-card hoverable>
-      <NuxtLink :to="`/${os}/${category}/${slug}`">
+      <NuxtLink :to="`/${category}/${slug}`">
         <div>
           <img v-if="logo" :src="logo" :alt="slug" />
           <img v-else src="/downsoft-logo.png" alt="default-logo" />
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="pt-3 font-bold">
-      <NuxtLink :to="`/${os}/${category}/${slug}`">{{ title }}</NuxtLink>
+      <NuxtLink :to="`/${category}/${slug}`">{{ title }}</NuxtLink>
     </div>
   </div>
 </template>
@@ -26,7 +26,6 @@
 <script setup>
 const props = defineProps({
   title: String,
-  os: String,
   category: String,
   logo: String,
   slug: String,

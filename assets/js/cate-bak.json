@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Windows",
+    "value": "windows"
+  },
+  {
+    "name": "Mac",
+    "value": "mac"
+  },
+  {
+    "name": "Android",
+    "value": "android"
+  },
+  {
+    "name": "iPhone",
+    "value": "iphone"
+  },
+  {
+    "name": "게임",
+    "value": "game"
+  },
+  {
+    "name": "AI",
+    "value": "ai"
+  },
+  {
+    "name": "브라우저",
+    "value": "browser"
+  },
+  {
+    "name": "보안 및 개인정보",
+    "value": "security"
+  },
+  {
+    "name": "개발",
+    "value": "development"
+  },
+  {
+    "name": "개인화",
+    "value": "personality"
+  },
+  {
+    "name": "교육",
+    "value": "education"
+  },
+  {
+    "name": "음악",
+    "value": "music"
+  },
+  {
+    "name": "소셜네트워크",
+    "value": "sns"
+  },
+  {
+    "name": "여행",
+    "value": "travel"
+  },
+  {
+    "name": "미디어",
+    "value": "media"
+  }
+]

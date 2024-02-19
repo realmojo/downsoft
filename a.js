@@ -93,12 +93,17 @@ setTimeout(async () => {
         }
       } else if (specTitle === "개발자") {
         t = $(obj).find(".app-specs__link");
-        t.each((key, o) => {
-          if ($(o).attr("data-meta") === "button-developer") {
-            developer = $(o).text().trim().toLowerCase();
-            developerLink = $(o).attr("href");
-          }
-        });
+        if (t.length) {
+          t.each((key, o) => {
+            if ($(o).attr("data-meta") === "button-developer") {
+              developer = $(o).text().trim().toLowerCase();
+              developerLink = $(o).attr("href");
+            }
+          });
+        } else {
+          developer = specText;
+          developerLink = "";
+        }
       } else if (specTitle.indexOf("언어") !== -1) {
         if (specText.indexOf("English") !== -1) {
           if (!primaryLanguage) {
@@ -201,7 +206,7 @@ setTimeout(async () => {
 
     const params = {
       title: title,
-      slug: replaceAll(title.toLowerCase(), " ", "-"),
+      slug: replaceAll(replaceAll(title.toLowerCase(), " ", "-"), "/", "-"),
       os: os,
       logo: logo,
       ext: getExt(logo),
@@ -225,7 +230,7 @@ setTimeout(async () => {
     $.ajax({
       type: "post",
       // url: "https://f5game-bot.herokuapp.com/downsoft/addContents",
-      url: "http://localhost:3000/downsoft/addContents",
+      url: "http://localhost:3001/downsoft/addContents",
       data: params,
     }).done((res) => {
       console.log(res);

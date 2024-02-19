@@ -1,6 +1,5 @@
 <template>
   <main class="soft-layout column pt-8">
-    <!-- <Adsense slotId="123123" /> -->
     <a-row class="soft-container pt-4">
       <a-col :xs="24" :sm="24" :md="18" :lg="16" class="px-4">
         <Breadcrumb :os="os" :category="category" :title="title" />
@@ -78,6 +77,7 @@
                 <a
                   v-if="item.links && item.links.windowsLink"
                   :href="item.links.windowsLink"
+                  target="_blank"
                 >
                   <a-button type="primary" class="btn-down w-full mb-2"
                     >Windows 무료 다운로드</a-button
@@ -86,6 +86,7 @@
                 <a
                   v-if="item.links && item.links.macLink"
                   :href="item.links.macLink"
+                  target="_blank"
                 >
                   <a-button type="primary" class="btn-down w-full mb-2"
                     >Mac 무료 다운로드</a-button
@@ -124,6 +125,11 @@
           <p v-if="item.cdescription2" v-html="item.cdescription2"></p>
           <h2 v-if="item.ctitle3">{{ item.ctitle3 }}</h2>
           <p v-if="item.cdescription3" v-html="item.cdescription3"></p>
+          <h2 v-if="item.ctitle4">{{ item.ctitle4 }}</h2>
+          <p v-if="des4.length > 0">
+            <div v-for="(des, key) in des4" :key="key">{{des}}</div>
+          </p>
+          <p v-else v-html="item.cdescription4"></p>
         </section>
       </a-col>
       <a-col :xs="24" :sm="24" :md="6" :lg="8" class="aside">
@@ -180,48 +186,8 @@ let { data } = await useFetch(url, {
 });
 
 const item = JSON.parse(data._rawValue);
-
-// console.log(res);
-
-// const data = {
-//   title: "게임",
-//   apps: [
-//     {
-//       image:
-//         "https://images.sftcdn.net/images/t_app-icon-s/p/3047d89c-96d0-11e6-8546-00163ed833e7/4018433091/steam-Download-Steam.jpg",
-//       title: "Steam1",
-//       rating: 4.1,
-//       free: "무료",
-//       os: "windows",
-//       category: "game",
-//     },
-//     {
-//       image:
-//         "https://images.sftcdn.net/images/t_app-icon-s/p/3047d89c-96d0-11e6-8546-00163ed833e7/4018433091/steam-Download-Steam.jpg",
-//       title: "Steam2",
-//       rating: 4.1,
-//       free: "무료",
-//       os: "windows",
-//       category: "game",
-//     },
-//     {
-//       image:
-//         "https://images.sftcdn.net/images/t_app-icon-s/p/3047d89c-96d0-11e6-8546-00163ed833e7/4018433091/steam-Download-Steam.jpg",
-//       title: "Steam3",
-//       rating: 4.1,
-//       free: "무료",
-//       os: "windows",
-//       category: "game",
-//     },
-//     {
-//       image:
-//         "https://images.sftcdn.net/images/t_app-icon-s/p/3047d89c-96d0-11e6-8546-00163ed833e7/4018433091/steam-Download-Steam.jpg",
-//       title: "Steam4",
-//       rating: 4.1,
-//       free: "무료",
-//       os: "windows",
-//       category: "game",
-//     },
-//   ],
-// };
+const des1 = item.cdescription1 ? item.cdescription1.split(". ") : "";
+const des2 = item.cdescription2 ? item.cdescription2.split(". ") : "";
+const des3 = item.cdescription3 ? item.cdescription3.split(". ") : "";
+const des4 = item.cdescription4 ? item.cdescription4.split("\n") : "";
 </script>
