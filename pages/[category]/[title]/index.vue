@@ -134,7 +134,7 @@
       </a-col>
       <a-col :xs="24" :sm="24" :md="6" :lg="8" class="aside">
         <h2>추천 앱</h2>
-        <a-list :data-source="items">
+        <a-list :data-source="rItems">
           <template #renderItem="{ item }">
             <NuxtLink :to="`/${item.category}/${item.slug}`">
               <a-list-item>
@@ -179,7 +179,7 @@ const os = route.params.os;
 const category = route.params.category;
 const title = route.params.title;
 
-const url = `https://api.getsoftbox.com/api/getItem.php?slug=${title}`;
+let url = `https://api.getsoftbox.com/api/getItem.php?slug=${title}`;
 let { data } = await useFetch(url, {
   key: "item",
   method: "get",
@@ -190,4 +190,91 @@ const des1 = item.cdescription1 ? item.cdescription1.split(". ") : "";
 const des2 = item.cdescription2 ? item.cdescription2.split(". ") : "";
 const des3 = item.cdescription3 ? item.cdescription3.split(". ") : "";
 const des4 = item.cdescription4 ? item.cdescription4.split("\n") : "";
+
+url = `https://api.getsoftbox.com/api/getItemsByRecommend.php?category=${category}&limit=6`;
+let { data: recommendItem } = await useFetch(url, {
+  key: "recommendItems",
+  method: "get",
+});
+const rItems = JSON.parse(recommendItem._rawValue);
+
+const metaUrl = `https://getsoftbox.com${route.path}`;
+const metaTitle = `${title} 다운로드 - 다운소프트`;
+const meataDescription = item.cdescription1.substr(0, 160);
+const logo = item.logo;
+useHead({
+  title: metaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: metaUrl,
+    },
+  ],
+  meta: [
+    {
+      name: "description",
+      content: meataDescription,
+    },
+    {
+      name: "og:type",
+      content: "website",
+    },
+    {
+      name: "og:url",
+      content: metaUrl,
+    },
+    {
+      name: "og:article:author",
+      content: "Mindpang",
+    },
+    {
+      name: "og:site_name",
+      content: "Mindpang",
+    },
+    {
+      name: "og:title",
+      content: metaTitle,
+    },
+    {
+      name: "og:image",
+      content: logo,
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:site",
+      content: "@mindpang.com",
+    },
+    {
+      name: "twitter:title",
+      content: metaTitle,
+    },
+    {
+      name: "twitter:description",
+      content: meataDescription,
+    },
+    {
+      name: "twitter:image",
+      content: logo,
+    },
+    {
+      name: "twitter:domain",
+      content: metaUrl,
+    },
+    {
+      name: "ia:markup_url",
+      content: metaUrl,
+    },
+    {
+      name: "ia:rules_url",
+      content: metaUrl,
+    },
+    {
+      name: "apple-touch-icon",
+      content: logo,
+    },
+  ],
+});
 </script>

@@ -54,6 +54,20 @@
         />
       </template>
     </a-flex>
+    <h2 class="text-2xl">개발 및 IT</h2>
+    <a-flex wrap="wrap" gap="large">
+      <template v-for="(item, key) in developerItems" :key="key">
+        <TabItem
+          :logo="item.logo"
+          :title="item.title"
+          :rate="item.rate"
+          :license="item.license"
+          :category="item.category"
+          :link="item.link"
+          :slug="item.slug"
+        />
+      </template>
+    </a-flex>
   </main>
 </template>
 <script setup>
@@ -78,4 +92,5 @@ const items = JSON.parse(data._rawValue);
 const gameItems = items.slice(0, 6);
 const browserItems = items.slice(6, 12);
 const securityItems = items.slice(12, 18);
+const developerItems = items.slice(18, 24);
 </script>

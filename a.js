@@ -92,18 +92,15 @@ setTimeout(async () => {
           os.push("iphone");
         }
       } else if (specTitle === "개발자") {
+        const aa = specText.split("|");
+        developer = aa[0].trim();
         t = $(obj).find(".app-specs__link");
-        if (t.length) {
-          t.each((key, o) => {
-            if ($(o).attr("data-meta") === "button-developer") {
-              developer = $(o).text().trim().toLowerCase();
-              developerLink = $(o).attr("href");
-            }
-          });
-        } else {
-          developer = specText;
-          developerLink = "";
-        }
+        t.each((key, o) => {
+          if ($(o).attr("data-meta") === "button-developer") {
+            developer = $(o).text().trim().toLowerCase();
+            developerLink = $(o).attr("href");
+          }
+        });
       } else if (specTitle.indexOf("언어") !== -1) {
         if (specText.indexOf("English") !== -1) {
           if (!primaryLanguage) {
@@ -206,17 +203,17 @@ setTimeout(async () => {
 
     a = $(".other-platform-chip__text");
     const otherosText = a.text().toLowerCase();
-    if (otherosText.indexOf('and') !== -1) {
-      os.push('android')
+    if (otherosText.indexOf("and") !== -1) {
+      os.push("android");
     }
-    if (otherosText.indexOf('iphone') !== -1) {
-      os.push('iphone')
+    if (otherosText.indexOf("iphone") !== -1) {
+      os.push("iphone");
     }
     if (otherosText.indexOf("window") !== -1) {
-      os.push('windows')
+      os.push("windows");
     }
     if (otherosText.indexOf("mac") !== -1) {
-      os.push('mac')
+      os.push("mac");
     }
 
     const params = {
@@ -225,7 +222,7 @@ setTimeout(async () => {
       os: os,
       logo: logo,
       ext: getExt(logo),
-      category: "security",
+      category: "development",
       license: license,
       primaryLanguage: primaryLanguage,
       altLanguages: altLanguages,
@@ -237,7 +234,7 @@ setTimeout(async () => {
       updated: updated,
       version: replaceAll(version.toLowerCase(), " ", ""),
       security: "excellent",
-      active: "wait",
+      active: "active",
     };
 
     console.log(params);
