@@ -204,13 +204,28 @@ setTimeout(async () => {
       }
     });
 
+    a = $(".other-platform-chip__text");
+    const otherosText = a.text().toLowerCase();
+    if (otherosText.indexOf('and') !== -1) {
+      os.push('android')
+    }
+    if (otherosText.indexOf('iphone') !== -1) {
+      os.push('iphone')
+    }
+    if (otherosText.indexOf("window") !== -1) {
+      os.push('windows')
+    }
+    if (otherosText.indexOf("mac") !== -1) {
+      os.push('mac')
+    }
+
     const params = {
       title: title,
       slug: replaceAll(replaceAll(title.toLowerCase(), " ", "-"), "/", "-"),
       os: os,
       logo: logo,
       ext: getExt(logo),
-      category: "game",
+      category: "security",
       license: license,
       primaryLanguage: primaryLanguage,
       altLanguages: altLanguages,
