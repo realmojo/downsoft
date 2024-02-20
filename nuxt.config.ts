@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss"],
   css: ["~/assets/css/style.css", "~/assets/css/mobile.css"],
-  plugins: ["@/plugins/antd"],
+  plugins: ["@/plugins/antd", "@/plugins/gtag"],
   app: {
     head: {
       htmlAttrs: { lang: "ko" },
@@ -74,15 +74,15 @@ export default defineNuxtConfig({
         },
         {
           name: "og:url",
-          content: "https://mindpang.com",
+          content: "https://getsoftbox.com",
         },
         {
           name: "og:article:author",
-          content: "Mindpang",
+          content: "getsoftbox",
         },
         {
           name: "og:site_name",
-          content: "마인드팡",
+          content: "다운소프트",
         },
         {
           name: "og:title",
@@ -98,7 +98,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:site",
-          content: "@mindpang.com",
+          content: "@getsoftbox.com",
         },
         {
           name: "twitter:title",
