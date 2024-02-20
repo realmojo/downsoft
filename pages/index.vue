@@ -13,9 +13,15 @@
   </div>
   <main class="soft-layout column">
     <h2 class="text-2xl">게임</h2>
-    <a-flex wrap="wrap" gap="large">
-      <template v-for="(item, key) in gameItems" :key="key">
-        <TabItem
+    <a-row>
+      <a-col
+        :xs="12"
+        :sm="8"
+        :md="6"
+        :lg="4"
+        v-for="(item, key) in gameItems"
+        :key="key"
+        ><TabItem
           :logo="item.logo"
           :title="item.title"
           :rate="item.rate"
@@ -23,13 +29,18 @@
           :category="item.category"
           :link="item.link"
           :slug="item.slug"
-        />
-      </template>
-    </a-flex>
+      /></a-col>
+    </a-row>
     <h2 class="text-2xl">브라우저</h2>
-    <a-flex wrap="wrap" gap="large">
-      <template v-for="(item, key) in browserItems" :key="key">
-        <TabItem
+    <a-row>
+      <a-col
+        :xs="12"
+        :sm="8"
+        :md="6"
+        :lg="4"
+        v-for="(item, key) in browserItems"
+        :key="key"
+        ><TabItem
           :logo="item.logo"
           :title="item.title"
           :rate="item.rate"
@@ -37,13 +48,18 @@
           :category="item.category"
           :link="item.link"
           :slug="item.slug"
-        />
-      </template>
-    </a-flex>
+      /></a-col>
+    </a-row>
     <h2 class="text-2xl">보안 및 개인정보</h2>
-    <a-flex wrap="wrap" gap="large">
-      <template v-for="(item, key) in securityItems" :key="key">
-        <TabItem
+    <a-row>
+      <a-col
+        :xs="12"
+        :sm="8"
+        :md="6"
+        :lg="4"
+        v-for="(item, key) in securityItems"
+        :key="key"
+        ><TabItem
           :logo="item.logo"
           :title="item.title"
           :rate="item.rate"
@@ -51,13 +67,18 @@
           :category="item.category"
           :link="item.link"
           :slug="item.slug"
-        />
-      </template>
-    </a-flex>
+      /></a-col>
+    </a-row>
     <h2 class="text-2xl">개발 및 IT</h2>
-    <a-flex wrap="wrap" gap="large">
-      <template v-for="(item, key) in developerItems" :key="key">
-        <TabItem
+    <a-row>
+      <a-col
+        :xs="12"
+        :sm="8"
+        :md="6"
+        :lg="4"
+        v-for="(item, key) in developerItems"
+        :key="key"
+        ><TabItem
           :logo="item.logo"
           :title="item.title"
           :rate="item.rate"
@@ -65,9 +86,8 @@
           :category="item.category"
           :link="item.link"
           :slug="item.slug"
-        />
-      </template>
-    </a-flex>
+      /></a-col>
+    </a-row>
   </main>
 </template>
 <script setup>

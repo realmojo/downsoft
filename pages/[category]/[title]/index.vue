@@ -1,7 +1,7 @@
 <template>
   <main class="soft-layout column pt-8">
     <a-row class="soft-container pt-4">
-      <a-col :xs="24" :sm="24" :md="18" :lg="16" class="px-4">
+      <a-col :xs="24" :sm="24" :md="18" :lg="16" >
         <Breadcrumb :os="os" :category="category" :title="title" />
         <div class="pt-4">
           <a-row>

@@ -1,7 +1,30 @@
 /* xs */
 @media (max-width: 576px) {
-  .small-tomato {
-    background-color: tomato;
+  header .header {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .search-text {
+    padding: 10px;
+    font-size: 24px;
+  }
+  .search-container {
+    height: 240px;
+  }
+  .search-wrap {
+    padding-top: 40px;
+  }
+  .search-input-wrap {
+    margin-top: 40px;
+  }
+  .soft-layout {
+    padding: 10px;
+  }
+  .tab-item {
+    width: 100%;
+  }
+  .ant-list-item {
+    padding: 12px 0 !important;
   }
 }
 /* sm */
@@ -12,19 +35,10 @@
 }
 /* md */
 @media (max-width: 992px) {
-  .small-tomato {
-    background-color: tomato;
-  }
 }
 /* lg */
 @media (max-width: 1200px) {
-  .small-tomato {
-    background-color: tomato;
-  }
 }
 /* xl */
 @media (max-width: 1600px) {
-  .small-tomato {
-    background-color: tomato;
-  }
 }
