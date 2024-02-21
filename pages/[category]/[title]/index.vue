@@ -1,7 +1,7 @@
 <template>
   <main class="soft-layout column pt-8">
     <a-row class="soft-container pt-4">
-      <a-col :xs="24" :sm="24" :md="18" :lg="16" >
+      <a-col :xs="24" :sm="24" :md="18" :lg="16">
         <Breadcrumb :os="os" :category="category" :title="title" />
         <div class="pt-4">
           <a-row>
@@ -22,7 +22,7 @@
                       v-if="item.primaryLanguage"
                       color="blue"
                       class="mr-2"
-                      >{{ item.primaryLanguage }}</a-tag
+                      >{{ countryCode[item.primaryLanguage] }}</a-tag
                     >
                     <a-tag v-if="item.version" color="blue" class="mr-2">{{
                       item.version
@@ -72,32 +72,39 @@
                 </div>
               </div>
             </a-col>
-            <a-col :xs="24" :sm="24" :md="24" :lg="8">
+            <!-- <a-col :xs="24" :sm="24" :md="24" :lg="8">
               <div class="flex flex-col">
-                <a
-                  v-if="item.links && item.links.windowsLink"
-                  :href="item.links.windowsLink"
-                  target="_blank"
-                >
-                  <a-button type="primary" class="btn-down w-full mb-2"
-                    >Windows 무료 다운로드</a-button
-                  >
-                </a>
-                <a
-                  v-if="item.links && item.links.macLink"
-                  :href="item.links.macLink"
-                  target="_blank"
-                >
-                  <a-button type="primary" class="btn-down w-full mb-2"
-                    >Mac 무료 다운로드</a-button
-                  >
-                </a>
               </div>
-            </a-col>
+            </a-col> -->
           </a-row>
         </div>
 
         <section class="pt-2">
+          <h2>다운로드</h2>
+          <p>
+            <a-row :gutter="16">
+              <a-col v-if="item.links && item.links.windowsLink" :xs="12" :sm="6">
+                <a :href="item.links.windowsLink" target="_blank">
+                  <a-button type="primary" class="btn-down w-full mb-2">Windows</a-button>
+                </a>
+              </a-col>
+              <a-col v-if="item.links && item.links.macLink" :xs="12" :sm="6">
+                <a :href="item.links.macLink" target="_blank">
+                  <a-button type="primary" class="btn-down w-full mb-2">Mac</a-button>
+                </a>
+              </a-col>
+              <a-col v-if="item.links && item.links.androidLink" :xs="12" :sm="6">
+                <a :href="item.links.androidLink" target="_blank">
+                  <a-button type="primary" class="btn-down w-full mb-2">Android</a-button>
+                </a>
+              </a-col>
+              <a-col v-if="item.links && item.links.iphoneLink" :xs="12" :sm="6">
+                <a :href="item.links.iphoneLink" target="_blank">
+                  <a-button type="primary" class="btn-down w-full mb-2">iPhone</a-button>
+                </a>
+              </a-col>
+            </a-row>
+          </p>
           <h2>앱 사양</h2>
           <a-descriptions class="mb-8" bordered>
             <a-descriptions-item v-if="item.license" label="라이센스">{{
@@ -174,6 +181,7 @@ import {
   WarningOutlined,
   CloseCircleOutlined,
 } from "@ant-design/icons-vue";
+import countryCode from "assets/js/countryCode.json";
 const route = useRoute();
 const os = route.params.os;
 const category = route.params.category;

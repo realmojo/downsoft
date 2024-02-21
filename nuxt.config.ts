@@ -1,9 +1,7 @@
-
 const title = "다운소프트 - 당신이 필요한 앱을 모두 한 곳에";
 const description =
   "다운소프트에서 혁신적인 경험을 즐겨보세요! 더 빠르고 더 스마트한 미래를 만나는 첫걸음, 당신의 일상을 풍부하게 만들어줄 앱을 지금 다운로드하세요.";
-const logo =
-  "https://getsoftbox.com/downsoft-logo.png";
+const logo = "https://getsoftbox.com/downsoft-logo.png";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -21,11 +19,11 @@ export default defineNuxtConfig({
         // {
         //   src: "https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js",
         // },
-        // {
-        //   src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9130836798889522",
-        //   crossorigin: "anonymous",
-        //   async: true,
-        // },
+        {
+          src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9130836798889522",
+          crossorigin: "anonymous",
+          async: true,
+        },
         {
           src: "//wcs.naver.net/wcslog.js",
           type: "text/javascript",

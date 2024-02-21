@@ -79,6 +79,7 @@
 </template>
 
 <script setup>
+import categoryCode from "assets/js/categoryCode.json";
 const route = useRoute();
 const category = route.params.category;
 
@@ -102,5 +103,83 @@ let { data: downloadItems } = await useFetch(url, {
   method: "get",
 });
 const dItems = JSON.parse(downloadItems._rawValue);
-console.log(dItems);
+const metaUrl = `https://getsoftbox.com${route.path}`;
+const metaTitle = `${categoryCode[category]} 카테고리 - 다운소프트`;
+const meataDescription = `다운소프트에서 혁신적인 경험을 즐겨보세요! ${categoryCode[category]} 카테고리 더 빠르고 더 스마트한 미래를 만나는 첫걸음, 당신의 일상을 풍부하게 만들어줄 앱을 지금 다운로드하세요.`;
+const logo = "https://getsoftbox.com/downsoft-logo.png";
+useHead({
+  title: metaTitle,
+  link: [
+    {
+      rel: "canonical",
+      href: metaUrl,
+    },
+  ],
+  meta: [
+    {
+      name: "description",
+      content: meataDescription,
+    },
+    {
+      name: "og:type",
+      content: "website",
+    },
+    {
+      name: "og:url",
+      content: metaUrl,
+    },
+    {
+      name: "og:article:author",
+      content: "Downsoft",
+    },
+    {
+      name: "og:site_name",
+      content: "Downsoft",
+    },
+    {
+      name: "og:title",
+      content: metaTitle,
+    },
+    {
+      name: "og:image",
+      content: logo,
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:site",
+      content: "@getsoftbox.com",
+    },
+    {
+      name: "twitter:title",
+      content: metaTitle,
+    },
+    {
+      name: "twitter:description",
+      content: meataDescription,
+    },
+    {
+      name: "twitter:image",
+      content: logo,
+    },
+    {
+      name: "twitter:domain",
+      content: metaUrl,
+    },
+    {
+      name: "ia:markup_url",
+      content: metaUrl,
+    },
+    {
+      name: "ia:rules_url",
+      content: metaUrl,
+    },
+    {
+      name: "apple-touch-icon",
+      content: logo,
+    },
+  ],
+});
 </script>
