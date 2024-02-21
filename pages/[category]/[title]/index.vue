@@ -199,7 +199,7 @@ let { data: recommendItem } = await useFetch(url, {
 const rItems = JSON.parse(recommendItem._rawValue);
 
 const metaUrl = `https://getsoftbox.com${route.path}`;
-const metaTitle = `${title} 다운로드 - 다운소프트`;
+const metaTitle = `${item.title} 다운로드 - 다운소프트`;
 const meataDescription = item.cdescription1.substr(0, 160);
 const logo = item.logo;
 useHead({
