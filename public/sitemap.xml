@@ -123,7 +123,7 @@
     <lastmod>2023-07-19</lastmod>
   </url>
   <url>
-    <loc>https://getsoftbox.com/game/radmin-vpn</loc>
+    <loc>https://getsoftbox.com/security/radmin-vpn</loc>
     <lastmod>2024-02-14</lastmod>
   </url>
   <url>
@@ -219,11 +219,19 @@
     <lastmod>2023-07-12</lastmod>
   </url>
   <url>
-    <loc>https://getsoftbox.com/developer/filezilla-portable</loc>
+    <loc>https://getsoftbox.com/development/filezilla-portable</loc>
     <lastmod>2023-07-12</lastmod>
   </url>
   <url>
-    <loc>https://getsoftbox.com/developer/smartftp</loc>
+    <loc>https://getsoftbox.com/development/smartftp</loc>
     <lastmod>2023-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://getsoftbox.com/development/solarwinds-tftp-server</loc>
+    <lastmod></lastmod>
+  </url>
+  <url>
+    <loc>https://getsoftbox.com/development/core-ftp-le</loc>
+    <lastmod>2023-02-16</lastmod>
   </url>
 </urlset>
