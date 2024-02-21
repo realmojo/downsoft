@@ -18,13 +18,6 @@
       <div class="downsoft-main-title">
         <NuxtLink to="/"><h1>Softbox</h1></NuxtLink>
       </div>
-      <!-- <div class="pt-4">
-        <a-input
-          size="large"
-          v-model:value="title"
-          placeholder="Search apps..."
-        />
-      </div> -->
     </div>
   </header>
   <a-drawer
@@ -68,7 +61,6 @@ const getItem = (label, key, icon, children, type) => {
     type,
   };
 };
-// const categories = ;
 
 const itemCategories = [];
 for (const item of categories) {
@@ -88,102 +80,4 @@ const afterOpenChange = (bool) => {
 const showDrawer = () => {
   open.value = true;
 };
-// const runtimeConfig = useRuntimeConfig();
-
-// const category = computed(() => {
-//   return route.params.category ? route.params.category : "all";
-// });
-// const isSearch = ref(false);
-// const searchText = ref("");
-// const isSearchList = ref(false);
-// const searchItems = ref([]);
-// const menuItems = ref([
-//   {
-//     title: "전체",
-//     key: "all",
-//     link: "/",
-//   },
-//   {
-//     title: "테스트",
-//     key: "test",
-//     link: "/test",
-//   },
-//   {
-//     title: "라이프",
-//     key: "life",
-//     link: "/life",
-//   },
-//   {
-//     title: "사랑",
-//     key: "love",
-//     link: "/love",
-//   },
-//   {
-//     title: "건강",
-//     key: "health",
-//     link: "/health",
-//   },
-//   {
-//     title: "돈",
-//     key: "money",
-//     link: "/money",
-//   },
-//   {
-//     title: "연예",
-//     key: "entertain",
-//     link: "/entertain",
-//   },
-//   {
-//     title: "다운로드",
-//     key: "download",
-//     link: "/download",
-//   },
-// ]);
-
-// const getRandomNumber = (min, max) => {
-//   return Math.floor(Math.random() * (max - min + 1) + min);
-// };
-
-// const debounce = (func, limit) => {
-//   let timeout;
-//   return function (...args) {
-//     clearTimeout(timeout);
-//     timeout = setTimeout(() => {
-//       func.apply(this, args);
-//     }, limit);
-//   };
-// };
-
-// watch(
-//   searchText,
-//   debounce(async (newSearchText) => {
-//     if (newSearchText) {
-//       const url = `https://api.mindpang.com/api/mind/search.php?search=${newSearchText}`;
-//       const { data } = await useFetch(url, {
-//         key: "main",
-//         method: "get",
-//       });
-//       const d = JSON.parse(data._rawValue);
-//       searchItems.value = d.items;
-//     } else {
-//       searchItems.value = [];
-//     }
-//   }, 300)
-// );
-
-// const doSearch = () => {
-//   isSearch.value = !isSearch.value;
-//   isSearchList.value = !isSearchList.value;
-// };
-
-// const doRandomStart = async () => {
-//   const url = `https://api.mindpang.com/api/mind/all.php`;
-//   const { data } = await useFetch(url, {
-//     key: "all",
-//     method: "get",
-//   });
-//   const d = JSON.parse(data._rawValue).items;
-//   const randomNumber = getRandomNumber(0, d.length - 1);
-//   location.href = `/${d[randomNumber].category}/${d[randomNumber].link}/`;
-// };
 </script>

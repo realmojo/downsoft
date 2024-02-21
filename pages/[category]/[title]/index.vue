@@ -225,11 +225,11 @@ useHead({
     },
     {
       name: "og:article:author",
-      content: "Mindpang",
+      content: "Downsoft",
     },
     {
       name: "og:site_name",
-      content: "Mindpang",
+      content: "Downsoft",
     },
     {
       name: "og:title",
@@ -245,7 +245,7 @@ useHead({
     },
     {
       name: "twitter:site",
-      content: "@mindpang.com",
+      content: "@getsoftbox.com",
     },
     {
       name: "twitter:title",
