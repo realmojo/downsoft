@@ -133,7 +133,7 @@
           <h2 v-if="item.ctitle3">{{ item.ctitle3 }}</h2>
           <p v-if="item.cdescription3" v-html="item.cdescription3"></p>
           <h2 v-if="item.ctitle4">{{ item.ctitle4 }}</h2>
-          <p v-if="des4.length > 0">
+          <p v-if="des4.length > 1">
             <div v-for="(des, key) in des4" :key="key">{{des}}</div>
           </p>
           <p v-else v-html="item.cdescription4"></p>

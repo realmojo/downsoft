@@ -102,97 +102,145 @@ setTimeout(async () => {
           }
         });
       } else if (specTitle.indexOf("언어") !== -1) {
-        if (specText.indexOf("English") !== -1) {
+        if (
+          specText.indexOf("English") !== -1 ||
+          specText.indexOf("영어") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "en";
           }
           altLanguages.push("en");
         }
-        if (specText.indexOf("Korean") !== -1) {
+        if (
+          specText.indexOf("Korean") !== -1 ||
+          specText.indexOf("한국") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "kr";
           }
           altLanguages.push("kr");
         }
-        if (specText.indexOf("Russian") !== -1) {
+        if (
+          specText.indexOf("Russian") !== -1 ||
+          specText.indexOf("러시아") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "ru";
           }
           altLanguages.push("ru");
         }
-        if (specText.indexOf("Czech") !== -1) {
+        if (
+          specText.indexOf("Czech") !== -1 ||
+          specText.indexOf("체코") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "cz";
           }
           altLanguages.push("cz");
         }
-        if (specText.indexOf("German") !== -1) {
+        if (
+          specText.indexOf("German") !== -1 ||
+          specText.indexOf("독일") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "de";
           }
           altLanguages.push("de");
         }
-        if (specText.indexOf("Spanish") !== -1) {
+        if (
+          specText.indexOf("Spanish") !== -1 ||
+          specText.indexOf("스페인") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "es";
           }
           altLanguages.push("es");
         }
-        if (specText.indexOf("Finnish") !== -1) {
+        if (
+          specText.indexOf("Finnish") !== -1 ||
+          specText.indexOf("핀란드") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "fi";
           }
           altLanguages.push("fi");
         }
-        if (specText.indexOf("Danish") !== -1) {
+        if (
+          specText.indexOf("Danish") !== -1 ||
+          specText.indexOf("덴마크") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "dk";
           }
           altLanguages.push("dk");
         }
-        if (specText.indexOf("Italian") !== -1) {
+        if (
+          specText.indexOf("Italian") !== -1 ||
+          specText.indexOf("이탈리아") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "it";
           }
           altLanguages.push("it");
         }
-        if (specText.indexOf("Japanese") !== -1) {
+        if (
+          specText.indexOf("Japanese") !== -1 ||
+          specText.indexOf("일본") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "jp";
           }
           altLanguages.push("jp");
         }
-        if (specText.indexOf("Dutch") !== -1) {
+        if (
+          specText.indexOf("Dutch") !== -1 ||
+          specText.indexOf("네덜란드") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "nl";
           }
           altLanguages.push("nl");
         }
-        if (specText.indexOf("Norwegian") !== -1) {
+        if (
+          specText.indexOf("Norwegian") !== -1 ||
+          specText.indexOf("노르웨이") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "no";
           }
           altLanguages.push("no");
         }
-        if (specText.indexOf("Polish") !== -1) {
+        if (
+          specText.indexOf("Polish") !== -1 ||
+          specText.indexOf("폴란드") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "pl";
           }
           altLanguages.push("pl");
         }
-        if (specText.indexOf("Portuguese") !== -1) {
+        if (
+          specText.indexOf("Portuguese") !== -1 ||
+          specText.indexOf("포르투갈") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "pt";
           }
           altLanguages.push("pt");
         }
-        if (specText.indexOf("Swedish") !== -1) {
+        if (
+          specText.indexOf("Swedish") !== -1 ||
+          specText.indexOf("스웨덴") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "se";
           }
           altLanguages.push("se");
         }
-        if (specText.indexOf("Chinese") !== -1) {
+        if (
+          specText.indexOf("Chinese") !== -1 ||
+          specText.indexOf("중국") !== -1
+        ) {
           if (!primaryLanguage) {
             primaryLanguage = "cn";
           }
