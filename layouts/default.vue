@@ -16,7 +16,7 @@
         </NuxtLink>
       </div>
       <div class="downsoft-main-title">
-        <NuxtLink to="/"><h1>Softbox</h1></NuxtLink>
+        <NuxtLink to="/">Softbox</NuxtLink>
       </div>
     </div>
   </header>
