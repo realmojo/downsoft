@@ -11,12 +11,12 @@
           <img
             src="/downsoft-logo.png"
             class="logo-image"
-            alt="downsoft-logo"
+            alt="downpang-logo"
           />
         </NuxtLink>
       </div>
-      <div class="downsoft-main-title">
-        <NuxtLink to="/">Softbox</NuxtLink>
+      <div class="downpang-main-title">
+        <NuxtLink to="/">Downpang</NuxtLink>
       </div>
     </div>
   </header>

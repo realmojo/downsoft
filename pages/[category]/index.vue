@@ -83,30 +83,30 @@ import categoryCode from "assets/js/categoryCode.json";
 const route = useRoute();
 const category = route.params.category;
 
-let url = `https://api.getsoftbox.com/api/getItemsByRecommend.php?category=${category}&limit=6`;
+let url = `https://api.downpang.com/api/getItemsByRecommend.php?category=${category}&limit=6`;
 let { data: recommendItem } = await useFetch(url, {
   key: "recommendItems",
   method: "get",
 });
 const rItems = JSON.parse(recommendItem._rawValue);
 
-url = `https://api.getsoftbox.com/api/getItemsByCategory.php?category=${category}&limit=6`;
+url = `https://api.downpang.com/api/getItemsByCategory.php?category=${category}&limit=6`;
 let { data: newItems } = await useFetch(url, {
   key: "newItems",
   method: "get",
 });
 const nItems = JSON.parse(newItems._rawValue);
 
-url = `https://api.getsoftbox.com/api/getItemsByDownload.php?category=${category}&limit=6`;
+url = `https://api.downpang.com/api/getItemsByDownload.php?category=${category}&limit=6`;
 let { data: downloadItems } = await useFetch(url, {
   key: "downloadItems",
   method: "get",
 });
 const dItems = JSON.parse(downloadItems._rawValue);
-const metaUrl = `https://getsoftbox.com${route.path}`;
-const metaTitle = `${categoryCode[category]} 카테고리 - 다운소프트`;
-const meataDescription = `다운소프트에서 혁신적인 경험을 즐겨보세요! ${categoryCode[category]} 카테고리 더 빠르고 더 스마트한 미래를 만나는 첫걸음, 당신의 일상을 풍부하게 만들어줄 앱을 지금 다운로드하세요.`;
-const logo = "https://getsoftbox.com/downsoft-logo.png";
+const metaUrl = `https://downpang.com${route.path}`;
+const metaTitle = `${categoryCode[category]} 카테고리 - 다운팡다운팡`;
+const meataDescription = `다운팡에서 혁신적인 경험을 즐겨보세요! ${categoryCode[category]} 카테고리 더 빠르고 더 스마트한 미래를 만나는 첫걸음, 당신의 일상을 풍부하게 만들어줄 앱을 지금 다운로드하세요.`;
+const logo = "https://downpang.com/downsoft-logo.png";
 useHead({
   title: metaTitle,
   link: [
@@ -130,11 +130,11 @@ useHead({
     },
     {
       name: "og:article:author",
-      content: "Downsoft",
+      content: "Downpang",
     },
     {
       name: "og:site_name",
-      content: "Downsoft",
+      content: "Downpang",
     },
     {
       name: "og:title",
@@ -150,7 +150,7 @@ useHead({
     },
     {
       name: "twitter:site",
-      content: "@getsoftbox.com",
+      content: "@downpang.com",
     },
     {
       name: "twitter:title",

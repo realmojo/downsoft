@@ -58,7 +58,7 @@ const route = useRoute();
 const os = route.params.os;
 const category = "ALL";
 const apps = ref([]);
-const url = `https://api.getsoftbox.com/api/getItemByOs.php?os=${os}`;
+const url = `https://api.downpang.com/api/getItemByOs.php?os=${os}`;
 let res = await useFetch(url, {
   key: "item",
   method: "get",

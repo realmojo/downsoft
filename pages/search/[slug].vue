@@ -28,7 +28,7 @@
 const route = useRoute();
 const slug = route.params.slug;
 
-const url = `https://api.getsoftbox.com/api/getItemsBySlug.php?slug=${slug}`;
+const url = `https://api.downpang.com/api/getItemsBySlug.php?slug=${slug}`;
 console.log(url);
 let { data } = await useFetch(url, {
   key: "item",

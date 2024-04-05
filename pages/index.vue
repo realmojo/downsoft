@@ -102,7 +102,7 @@ const search = async () => {
   }
 };
 
-let url = `https://api.getsoftbox.com/api/getItemsMainByCategory.php`;
+let url = `https://api.downpang.com/api/getItemsMainByCategory.php`;
 let { data } = await useFetch(url, {
   key: "item",
   method: "get",

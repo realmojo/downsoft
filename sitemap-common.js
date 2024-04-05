@@ -3,7 +3,7 @@ const fs = require("fs");
 const prettier = require("prettier");
 
 // 오늘 날짜 가져오기 & 도메인 설정
-const DOMAIN = "https://getsoftbox.com";
+const DOMAIN = "https://downpang.com";
 const formatted = (sitemap) => prettier.format(sitemap, { parser: "html" });
 
 const replaceAll = (str, searchStr, replaceStr) => {
@@ -11,9 +11,7 @@ const replaceAll = (str, searchStr, replaceStr) => {
 };
 
 (async () => {
-  const { data } = await axios.get(
-    "https://api.getsoftbox.com/api/getItems.php"
-  );
+  const { data } = await axios.get("https://api.downpang.com/api/getItems.php");
   const pagesSitemap = `${data.map((item) => {
     return `<url>
             <loc>${DOMAIN}/${item.category}/${item.slug}</loc>

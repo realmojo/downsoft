@@ -436,15 +436,12 @@ const doSave = async () => {
   if (route.query?.slug) {
     // updated
     res = await axios.post(
-      "https://api.getsoftbox.com/api/updateItem.php",
+      "https://api.downpang.com/api/updateItem.php",
       params
     );
   } else {
     // insert
-    res = await axios.post(
-      "https://api.getsoftbox.com/api/addItem.php",
-      params
-    );
+    res = await axios.post("https://api.downpang.com/api/addItem.php", params);
   }
   console.log(res);
 };
@@ -452,7 +449,7 @@ const doSave = async () => {
 onMounted(async () => {
   if (slug.value) {
     const { data } = await axios.get(
-      `https://api.getsoftbox.com/api/getItem.php?slug=${slug.value}`
+      `https://api.downpang.com/api/getItem.php?slug=${slug.value}`
     );
 
     console.log(data);

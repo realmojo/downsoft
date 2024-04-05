@@ -187,7 +187,7 @@ const os = route.params.os;
 const category = route.params.category;
 const title = route.params.title;
 
-let url = `https://api.getsoftbox.com/api/getItem.php?slug=${title}`;
+let url = `https://api.downpang.com/api/getItem.php?slug=${title}`;
 let { data } = await useFetch(url, {
   key: "item",
   method: "get",
@@ -199,15 +199,15 @@ const des2 = item.cdescription2 ? item.cdescription2.split(". ") : "";
 const des3 = item.cdescription3 ? item.cdescription3.split(". ") : "";
 const des4 = item.cdescription4 ? item.cdescription4.split("\n") : "";
 
-url = `https://api.getsoftbox.com/api/getItemsByRecommend.php?category=${category}&limit=6`;
+url = `https://api.downpang.com/api/getItemsByRecommend.php?category=${category}&limit=6`;
 let { data: recommendItem } = await useFetch(url, {
   key: "recommendItems",
   method: "get",
 });
 const rItems = JSON.parse(recommendItem._rawValue);
 
-const metaUrl = `https://getsoftbox.com${route.path}`;
-const metaTitle = `${item.title} 다운로드 - 다운소프트`;
+const metaUrl = `https://downpang.com${route.path}`;
+const metaTitle = `${item.title} 다운로드 - 다운팡`;
 const meataDescription = item.cdescription1.substr(0, 160);
 const logo = item.logo;
 useHead({
@@ -233,11 +233,11 @@ useHead({
     },
     {
       name: "og:article:author",
-      content: "Downsoft",
+      content: "Downpang",
     },
     {
       name: "og:site_name",
-      content: "Downsoft",
+      content: "Downpang",
     },
     {
       name: "og:title",
@@ -253,7 +253,7 @@ useHead({
     },
     {
       name: "twitter:site",
-      content: "@getsoftbox.com",
+      content: "@downpang.com",
     },
     {
       name: "twitter:title",
