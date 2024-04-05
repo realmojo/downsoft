@@ -50,6 +50,12 @@ const replaceAll = (str, searchStr, replaceStr) => {
         <priority>1.00</priority>
       </url>
       <url>
+        <loc>${DOMAIN}/util</loc>
+        <lastmod>2024-01-01</lastmod>
+        <changefreq>always</changefreq>
+        <priority>1.00</priority>
+      </url>
+      <url>
         <loc>${DOMAIN}/browser</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>always</changefreq>
