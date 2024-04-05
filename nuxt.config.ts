@@ -48,11 +48,11 @@ export default defineNuxtConfig({
       meta: [
         {
           name: "naver-site-verification",
-          content: "9eb7ac0d8ce0678a84ab9887a8b3d8e60d149a15",
+          content: "4eebc540aeaa00ac14e86236ce8af63ef9cd8592",
         },
         {
           name: "google-site-verification",
-          content: "DLLtjpWnVDBz_Uxp3QCp5kYu_v_G-F_TYOZ1S-hm0fs",
+          content: "p5pjvv5CLGT1lB3oxHf4xzaGf6S1rDxKOkvPQ3uYM48",
         },
         {
           name: "robots",
